@@ -1,0 +1,66 @@
+.header
+  .header-box
+    .left-header
+      .logo
+        = link_to root_path, class: "top-page" do
+          focus0n
+      .search-field
+        %input.search-box
+          search
+          -# = form_tag("",method: :get) do
+          -#   = text_field
+          -#     検索する
+    .right-header
+      .like-list
+        = fa_icon 'heart-o', class: 'icon'
+      - if user_signed_in?
+        .new-project
+          New
+          .new-select-list
+            %ul
+              %li
+                =link_to "" ,class: "select-btn" do
+                  みんなの意見を聞いてみる
+              %li
+                =link_to "",class: "select-btn" do
+                  本格的にプロジェクトを立ち上げる
+        .top-menu
+          Menu
+        .logout
+          = link_to destroy_user_session_path, method: :delete, class: "signout" do
+            SignOut
+        .login-user
+          =link_to edit_user_path(current_user), class: "edit-btn" do
+            =image_tag "https://demo.a-blogcms.jp/media/001/201902/1c35033abff55e4664a216314d599201.png", class: "user-img"
+      
+      - else
+        .login
+          = link_to new_user_session_path, class: "login-page" do
+            ログイン
+        .new-account
+          = link_to new_user_registration_path, class: "new-accout-page" do
+            新規登録
+        -# .new-project
+        -#   =link_to new_ambi_path, class: "new-project" do
+        -#     新規投稿
+
+  .chat-side
+    .side-header
+      .side-header__box
+        %h3.side-header__box__user-name
+          = current_user.name
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group
+            = link_to new_group_path do
+              = fa_icon 'pencil-square-o', class: 'icon'
+          %li.side-header__box__menu__edit-user
+            = link_to edit_user_path(current_user) do
+              = fa_icon 'cog', class: 'icon'
+    .groups
+      - current_user.groups.each do |group|
+        .group
+          = link_to group_posts_path(group) do
+            .group__group-name
+              = group.name
+            .group__latest-post
+              = group.show_last_post

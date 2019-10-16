@@ -1,0 +1,199 @@
+$header-line-height: 60px;
+$header-right-margin: 0 10px;
+$header-color: black;
+$font-color:#FFFFFF;
+
+.header{
+  position: relative;
+  height: 60px;
+  border-bottom: solid 1px #eee;
+  color: $header-color;
+
+  .header-box{
+    padding: 0 15%;
+
+    .left-header{
+      float:left;
+      display: flex;
+      line-height: $header-line-height;
+
+      .logo{
+        margin-right: 30px; 
+        font-size: 150%;
+        font-weight: bold;
+
+        .top-page{
+          color: $header-color;
+          text-decoration: none;
+        }
+      }
+      .search-field{
+        font-size: 75%;
+        margin: 0 30px;
+
+        .search-box{
+          height: 50%;
+          width: 190px;
+          margin-right: 15px;
+          outline: none;
+          border:solid 1px gray;
+          border-radius: 5px;
+        }
+      }
+    }
+
+    .right-header{
+      float: right;
+      display: flex;
+      font-size: 90%;
+      line-height: $header-line-height;
+      
+
+      .like-list{
+        margin: $header-right-margin;
+      }
+      .login{
+        margin: $header-right-margin;
+      }
+      .new-account{
+        margin: $header-right-margin;
+      }
+      .new-project{
+        position: relative;
+        margin: $header-right-margin;
+        cursor: pointer;
+        
+        .new-select-list{
+          position: absolute;
+          bottom: -55px;
+          display: none;
+          width: 210px;
+          z-index: 3;
+
+          ul{
+            li{
+              line-height: 30px;
+              background: rgba(1,1,1,0.8);
+              margin-bottom: 3px;
+              padding-left: 10px;
+
+              .select-btn{
+                font-size: 12px;
+                color: #FFFFFF;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+        
+        .new-btn{
+          color: $header-color;
+          text-decoration: none;       
+        }
+      }
+      .top-menu{
+        margin: $header-right-margin;
+        cursor: pointer;
+      }
+      
+      .logout{
+        margin: $header-right-margin;
+
+        .signout{
+          color: $header-color;
+          text-decoration: none;
+        }
+      }
+      .login-user{
+        margin: $header-right-margin;
+
+        .edit-btn{
+          position: relative;
+          display: block;
+          height: 100%;
+
+          .user-img{
+            position: absolute;
+            top: 50%;
+            -webkit-transform : translateY(-50%);
+            transform : translateY(-50%);
+            height: 33px;
+            width: 33px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .chat-side{
+    position: absolute;
+    position: fixed;
+    display: none;
+    height: 100vh;
+    width: 300px;
+    color: $font-color;
+    float: left;
+    z-index: 3;
+
+      a{
+        text-decoration: none;
+        color: $font-color;
+      }
+
+      .side-header{
+        background-color: #253141;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      
+        &__box{
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          font-weight: bold;
+
+
+          &__user-name{
+            margin: 0;
+            padding: 0;
+          }
+
+          &__menu{
+            display: flex;
+            color: $font-color;
+            
+              &__new-group{
+                margin-left: 0.3rem;
+              }
+
+              &__edit-user{
+                margin-left: 0.3rem;
+              }
+          }
+        }
+      }
+
+      .groups{
+        height: calc(100vh - 100px);
+        background-color: #2f3e51;
+        padding: 20px 20px 0;
+        overflow: scroll;      
+
+        .group{
+          margin-bottom: 40px;
+          color:$font-color;
+        
+
+          &__group-name{
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+
+          &__latest-post{
+            font-size: 11px;
+          }
+        }
+      }
+  }
+}

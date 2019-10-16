@@ -1,0 +1,11 @@
+.post{"data-post-id": "#{post.id}"}
+  .post__upper-info
+    %p.post__upper-info__talker
+      = post.user.name
+    %p.post__upper-info__date
+      = post.created_at.strftime("%Y/%m/%d %H:%M")
+  %p.post__text
+    - if post.content.present?
+      %p.lower-post__content
+        = post.content
+    = image_tag post.image.url, class: 'lower-post__image' if post.image.present?

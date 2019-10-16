@@ -1,0 +1,43 @@
+= render partial: 'shared/header'
+.wrapper    
+  .main-header
+    .main-header__new-post
+      .main-header__new-post__image
+        = fa_icon 'camera', class: 'icon'
+      .main-header__new-post__logo
+        New！!
+
+    .main-header__group
+      .main-header__group__left-box
+        %h2.main-header__group__left-box__current-group
+          GroupName：
+          %li.main-header__group__left-box__current-group__title
+            = @group.name
+        %ul.main-header__group__left-box__member-list
+          Member：
+          %li.main-header__group__left-box__member-list__member
+            -  @group.users.each do |user|
+              = user.name
+
+      .main-header__group__edit-box
+        .main-header__group__edit-box__edit-btn
+          =link_to edit_group_path(@group), class: "edit_id" do
+            Edit
+
+  .chat-main
+    .posts
+      = render partial: 'post', collection: @posts
+  .form-box
+    .form
+      .close-btn
+        = fa_icon 'times', class: 'icon'
+      = form_for [@group, @post] do |f|
+        .input-box
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a post'
+          = f.label :image, class: 'input-box__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'input-box__image__file'
+
+        = f.submit 'Send', class: 'submit-btn'
+
+= render partial: 'shared/footer'
