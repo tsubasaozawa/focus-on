@@ -10,4 +10,5 @@ Rails.application.routes.draw do
       resources :posts, only: :index, defaults: { format: 'json' }
     end
   end
+  post "likes/:post_id/create" => "likes#create"
 end

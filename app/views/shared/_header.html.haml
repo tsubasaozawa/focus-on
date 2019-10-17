@@ -14,16 +14,6 @@
       .like-list
         = fa_icon 'heart-o', class: 'icon'
       - if user_signed_in?
-        .new-project
-          New
-          .new-select-list
-            %ul
-              %li
-                =link_to "" ,class: "select-btn" do
-                  みんなの意見を聞いてみる
-              %li
-                =link_to "",class: "select-btn" do
-                  本格的にプロジェクトを立ち上げる
         .top-menu
           Menu
         .logout
@@ -44,23 +34,22 @@
         -#   =link_to new_ambi_path, class: "new-project" do
         -#     新規投稿
 
-  .chat-side
-    .side-header
-      .side-header__box
-        %h3.side-header__box__user-name
-          = current_user.name
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group
-            = link_to new_group_path do
-              = fa_icon 'pencil-square-o', class: 'icon'
-          %li.side-header__box__menu__edit-user
-            = link_to edit_user_path(current_user) do
-              = fa_icon 'cog', class: 'icon'
+  .main-menu-side
     .groups
+      .groups__menu-close-btn
+        = fa_icon 'times', class: 'icon'
+      .groups__box-menu
+        = link_to new_group_path do
+          新規グループを作成する
+      .groups__search-title
+        所属グループから探す
       - current_user.groups.each do |group|
         .group
           = link_to group_posts_path(group) do
             .group__group-name
-              = group.name
-            .group__latest-post
-              = group.show_last_post
+              = "・" + group.name
+            -# .group__latest-post
+            -#   = group.show_last_post
+      .top-index
+        =link_to root_path,class: "index-root" do
+          一覧に戻る

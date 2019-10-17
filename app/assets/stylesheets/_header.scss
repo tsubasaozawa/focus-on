@@ -95,7 +95,7 @@ $font-color:#FFFFFF;
         margin: $header-right-margin;
         cursor: pointer;
       }
-      
+
       .logout{
         margin: $header-right-margin;
 
@@ -109,7 +109,7 @@ $font-color:#FFFFFF;
 
         .edit-btn{
           position: relative;
-          display: block;
+          display: flex;
           height: 100%;
 
           .user-img{
@@ -125,74 +125,79 @@ $font-color:#FFFFFF;
       }
     }
   }
-  .chat-side{
-    position: absolute;
+  .main-menu-side{
     position: fixed;
+    top: 125px;
+    left: 3.5%;
+    display: flex;
     display: none;
-    height: 100vh;
-    width: 300px;
+    flex-direction: column;
+    z-index: 2;
+    min-height: 180px;
+    width: 200px;
+    padding: 0 20px;
+    border: solid 1px #eee;
+    border-radius: 5px ;
+    background: rgba(1, 1, 1, 0.8);
     color: $font-color;
-    float: left;
-    z-index: 3;
 
       a{
         text-decoration: none;
         color: $font-color;
       }
 
-      .side-header{
-        background-color: #253141;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-      
-        &__box{
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          font-weight: bold;
+      .groups{
+        &__menu-close-btn{
+          margin: 7px 0;
+          text-align: right;
+          cursor: pointer;
+        }
 
+        &__box-menu{
+          margin-bottom: 8px;
+          font-size: 13px;
 
-          &__user-name{
-            margin: 0;
-            padding: 0;
-          }
-
-          &__menu{
-            display: flex;
-            color: $font-color;
-            
-              &__new-group{
-                margin-left: 0.3rem;
-              }
-
-              &__edit-user{
-                margin-left: 0.3rem;
-              }
+          &:hover {
+            border-bottom: solid 1px #FFFFFF;
           }
         }
-      }
 
-      .groups{
-        height: calc(100vh - 100px);
-        background-color: #2f3e51;
-        padding: 20px 20px 0;
-        overflow: scroll;      
+        &__search-title{
+          margin-bottom: 8px;
+          font-size: 13px;
+          cursor: pointer;
+
+          &:hover {
+            border-bottom: solid 1px #FFFFFF;
+          }
+            
+        }
 
         .group{
-          margin-bottom: 40px;
+          display: none;
+          margin-bottom: 8px;
           color:$font-color;
-        
+          font-size: 12px;
+          // border-bottom: solid 1px #FFFFFF;
 
           &__group-name{
-            font-size: 15px;
-            margin-bottom: 5px;
+            font-size: 11px;
+            // margin: 0 0 8px 5px;
           }
 
           &__latest-post{
             font-size: 11px;
           }
+        }
+
+        .top-index{
+          margin-bottom: 15px;
+          font-size: 13px;
+
+          &:hover {
+            border-bottom: solid 1px #FFFFFF;
+          }
+        
         }
       }
   }

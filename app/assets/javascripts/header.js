@@ -1,13 +1,19 @@
 $( document ).on('turbolinks:load', function() {
-  $(function(){
-    $(".new-project").on("click",function(){
-      $('.new-select-list').animate({ height: 'toggle'}, 'nomal' );
+  $(function () {
+    $('.top-menu').click(function () {
+        $('.main-menu-side').fadeIn('fast');
+    });
+  });
+
+  $(function () {
+    $('.groups__menu-close-btn').click(function () {
+        $('.main-menu-side').fadeOut('fast');
     });
   });
 
   $(function(){
-    $(".top-menu").on("click",function(){
-      $('.chat-side').animate({ width: 'toggle'}, 'fast' );
+    $('.groups__search-title').click(function(){
+      $('.group').slideToggle('fast');
     });
   });
 });

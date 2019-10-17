@@ -1,5 +1,37 @@
 = render partial: 'shared/header'
-.wrapper
-  = render partial: 'shared/side_bar'
+.wrapper    
+  .main-header
+    .main-header__new-post
+      .main-header__new-post__image
+        = fa_icon 'camera', class: 'icon'
+      .main-header__new-post__logo
+        New！!
+
+    .main-header__group
+      .main-header__group__left-box
+        %h2.main-header__group__left-box__current-group
+          ランキング：
+          %li.main-header__group__left-box__current-group__title
+            未実装
+
+  .chat-main
+    .posts
+      -@posts.each do|post|
+        .post{"data-post-id": "#{post.id}"}
+          .post__upper-info
+            %p.post__upper-info__talker
+              = post.user.name
+            %p.post__upper-info__icon
+              = fa_icon 'bars', class: 'icon'
+          %p.post__text
+            = image_tag post.image.url, class: 'lower-post__image' if post.image.present?
+            - if post.content.present?
+              %p.post__text__content
+                = post.content
+                =link_to "", method: 'post', class:'like-done' do
+                  = fa_icon 'heart-o', class: 'like-icon'
+
+            %p.post__text__date
+              = post.created_at.strftime("%Y/%m/%d %H:%M")
 
 = render partial: 'shared/footer'

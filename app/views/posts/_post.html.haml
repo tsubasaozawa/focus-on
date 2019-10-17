@@ -9,6 +9,12 @@
     - if post.content.present?
       %p.post__text__content
         = post.content
+        =link_to "likes/#{@post.id}/create", method: 'post', class:'like-done' do
+          = fa_icon 'heart-o', class: 'like-icon'
+    -# - if Like.find_by(user_id:@current_user,post_id:@post.id)
+    -#   いいね済み
+    -# - else
+    -#   いいねしていません
     %p.post__text__date
       = post.created_at.strftime("%Y/%m/%d %H:%M")
     %input.post__text__comment{:placeholder => "コメント入力", :type => "text", :value => ""}/

@@ -152,8 +152,17 @@
         margin-bottom: 10px;
 
         &__content{
+          position: relative;
           font-size: 14px;
           margin: 0 15px 8px;
+          padding-right: 25px;
+
+          .like-icon{
+            position: absolute;
+            right: 0;
+            padding-top: 2px;
+            font-size: 15px;
+          }
         }
 
         &__date{

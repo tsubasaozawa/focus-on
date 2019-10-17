@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def index
+    @posts = Post.all.order(created_at: "DESC")
   end
 
   def new
