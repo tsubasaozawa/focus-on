@@ -2,10 +2,14 @@
   .post__upper-info
     %p.post__upper-info__talker
       = post.user.name
-    %p.post__upper-info__date
-      = post.created_at.strftime("%Y/%m/%d %H:%M")
+    %p.post__upper-info__icon
+      = fa_icon 'bars', class: 'icon'
   %p.post__text
-    - if post.content.present?
-      %p.lower-post__content
-        = post.content
     = image_tag post.image.url, class: 'lower-post__image' if post.image.present?
+    - if post.content.present?
+      %p.post__text__content
+        = post.content
+    %p.post__text__date
+      = post.created_at.strftime("%Y/%m/%d %H:%M")
+    %input.post__text__comment{:placeholder => "コメント入力", :type => "text", :value => ""}/
+  -# 後ほどform_forもしくはform_withに変更

@@ -33,10 +33,13 @@
         = fa_icon 'times', class: 'icon'
       = form_for [@group, @post] do |f|
         .input-box
-          = f.text_field :content, class: 'input-box__text', placeholder: 'type a post'
           = f.label :image, class: 'input-box__image' do
-            = fa_icon 'picture-o', class: 'icon'
             = f.file_field :image, class: 'input-box__image__file'
+            - if @post.image.present?
+              = image_tag @post.image, id: :img_prev
+            - else
+              = image_tag "https://demo.a-blogcms.jp/media/001/201902/1c35033abff55e4664a216314d599201.png", id: :img_prev
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a post'
 
         = f.submit 'Send', class: 'submit-btn'
 

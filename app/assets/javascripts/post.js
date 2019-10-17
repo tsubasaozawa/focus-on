@@ -72,12 +72,6 @@ $( document ).on('turbolinks:load', function() {
   setInterval(reloadposts, 5000);
   });
 
-  // $(function(){
-  //   $(".main-header__new-post").on("click",function(){
-  //     $('.form-box').animate({ height: 'show'}, 'fast' );
-  //   });
-  // });
-
   $(function () {
     $('.main-header__new-post').click(function () {
         $('.form-box').fadeIn('fast');
@@ -86,6 +80,12 @@ $( document ).on('turbolinks:load', function() {
 
   $(function () {
     $('.close-btn').click(function () {
+        $('.form-box').fadeOut('fast');
+    });
+  });
+
+  $(function () {
+    $('.submit-btn').click(function () {
         $('.form-box').fadeOut('fast');
     });
   });
